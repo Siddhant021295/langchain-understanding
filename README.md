@@ -1,6 +1,29 @@
 # Lang Project
 
+[![CI](https://github.com/Siddhant021295/langchain-understanding/actions/workflows/ci.yml/badge.svg)](https://github.com/Siddhant021295/langchain-understanding/actions/workflows/ci.yml)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![Poetry](https://img.shields.io/badge/dependency%20manager-poetry-blue)](https://python-poetry.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 This is a Python project using Poetry for dependency management, LangChain for AI/LLM functionality, and OpenAI for GPT model integration.
+
+## 🚀 Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/Siddhant021295/langchain-understanding.git
+cd langchain-understanding
+
+# Install dependencies
+poetry install
+
+# Configure environment
+cp .env.template .env
+# Edit .env and add your OPENAI_API_KEY
+
+# Run the project
+poetry run python -m lang
+```
 
 ## Dependencies
 
@@ -78,3 +101,31 @@ The project includes:
 - **OpenAI**: For accessing GPT models and other OpenAI services
 
 The main module demonstrates basic integration of both libraries.
+
+## 📁 Project Structure
+
+```
+langchain-understanding/
+├── .env.template          # Environment variables template
+├── .github/
+│   └── workflows/
+│       └── ci.yml         # GitHub Actions CI/CD
+├── lang/                  # Main package
+│   ├── __init__.py        # Package initialization
+│   ├── __main__.py        # Main application entry point
+│   ├── config.py          # Configuration management
+│   └── example.py         # LangChain + OpenAI integration example
+├── LICENSE                # MIT License
+├── README.md              # This file
+├── CONTRIBUTING.md        # Contribution guidelines
+├── pyproject.toml         # Poetry configuration
+└── poetry.lock            # Dependency lock file
+```
+
+## 🤝 Contributing
+
+Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

@@ -1,10 +1,11 @@
 # Lang Project
 
-This is a Python project using Poetry for dependency management and LangChain for AI/LLM functionality.
+This is a Python project using Poetry for dependency management, LangChain for AI/LLM functionality, and OpenAI for GPT model integration.
 
 ## Dependencies
 
 - **LangChain**: Framework for developing applications with language models
+- **OpenAI**: Official OpenAI Python library for GPT models
 - **Python**: >=3.11,<4.0
 
 ## Setup
@@ -22,6 +23,11 @@ This is a Python project using Poetry for dependency management and LangChain fo
 3. Activate the virtual environment:
    ```bash
    poetry shell
+   ```
+
+4. (Optional) Set your OpenAI API key for actual API calls:
+   ```bash
+   export OPENAI_API_KEY="your-api-key-here"
    ```
 
 ## Development
@@ -42,6 +48,10 @@ poetry add --group dev package_name
 poetry run python -m lang
 ```
 
-## LangChain Integration
+## AI/LLM Integration
 
-The project includes LangChain for building AI applications. The main module demonstrates basic LangChain message creation.
+The project includes:
+- **LangChain**: For building AI applications and chaining language model operations
+- **OpenAI**: For accessing GPT models and other OpenAI services
+
+The main module demonstrates basic integration of both libraries.

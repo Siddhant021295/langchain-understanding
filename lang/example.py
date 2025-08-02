@@ -1,9 +1,9 @@
 """Example integration of LangChain with OpenAI."""
 
-import os
 from typing import Optional
 from langchain_openai import ChatOpenAI
 from langchain.schema import HumanMessage, SystemMessage
+from .config import config
 
 
 def create_openai_chat_model(api_key: Optional[str] = None) -> Optional[ChatOpenAI]:
@@ -11,16 +11,16 @@ def create_openai_chat_model(api_key: Optional[str] = None) -> Optional[ChatOpen
     Create a LangChain ChatOpenAI model.
     
     Args:
-        api_key: OpenAI API key. If None, will try to get from environment.
+        api_key: OpenAI API key. If None, will use config.
         
     Returns:
         ChatOpenAI model instance or None if no API key available.
     """
     if api_key is None:
-        api_key = os.getenv("OPENAI_API_KEY")
+        api_key = config.get_openai_api_key()
     
     if not api_key:
-        print("⚠️  No OpenAI API key found. Set OPENAI_API_KEY environment variable.")
+        print("⚠️  No OpenAI API key found. Check your .env file or set OPENAI_API_KEY environment variable.")
         return None
     
     try:
@@ -28,7 +28,8 @@ def create_openai_chat_model(api_key: Optional[str] = None) -> Optional[ChatOpen
         chat_model = ChatOpenAI(
             model="gpt-3.5-turbo",
             temperature=0.7,
-            api_key=api_key
+            api_key=api_key,
+            organization=config.OPENAI_ORG_ID if config.OPENAI_ORG_ID else None
         )
         return chat_model
     except Exception as e:
@@ -48,7 +49,8 @@ def example_chat_completion():
         print("Cannot run example without OpenAI API key.")
         print("To run this example:")
         print("1. Get an API key from https://platform.openai.com/api-keys")
-        print("2. Set it as environment variable: export OPENAI_API_KEY='your-key'")
+        print("2. Add it to your .env file: OPENAI_API_KEY=your-key-here")
+        print("3. Or set environment variable: export OPENAI_API_KEY='your-key'")
         return
     
     # Create messages

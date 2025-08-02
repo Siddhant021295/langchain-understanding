@@ -1,6 +1,11 @@
 # Lang Project
 
-This is a Python project using Poetry for dependency management.
+This is a Python project using Poetry for dependency management and LangChain for AI/LLM functionality.
+
+## Dependencies
+
+- **LangChain**: Framework for developing applications with language models
+- **Python**: >=3.11,<4.0
 
 ## Setup
 
@@ -36,3 +41,7 @@ poetry add --group dev package_name
 ```bash
 poetry run python -m lang
 ```
+
+## LangChain Integration
+
+The project includes LangChain for building AI applications. The main module demonstrates basic LangChain message creation.
